@@ -12,7 +12,7 @@ A pixel game wich can remind me my childhood. But it is a real 3D game. The worl
 
 ![Alt text][FEZ]
 
-[FEZ] https://raw.githubusercontent.com/FiveEye/playground/master/games/FEZ.png
+[FEZ]: https://raw.githubusercontent.com/FiveEye/playground/master/games/FEZ.png
 
 #Super Meat Boy
 
@@ -31,5 +31,5 @@ A puzzle game which is exactly programming... I have play this game several year
 ![Alt text][SpaceChem_0]
 ![Alt text][SpaceChem_1]
 
-[SpaceChem_0] https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_0.png
-[SpaceChem_1] https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_1.png
+[SpaceChem_0]: https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_0.png
+[SpaceChem_1]: https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_1.png
