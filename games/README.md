@@ -8,7 +8,7 @@ It is a art game on Steam. Many people said that it is not a game, because the o
 
 #FEZ
 
-A pixel game wich can remind me my childhood. But it is a real 3D game. The world in this game has four orthographic views, and players can switch them by rotating the world. I think that the idea behind this game come from Super Paper Mario
+A pixel game wich reminds me my childhood. But it is a real 3D game. The world in this game has four orthographic views, and players can switch them by rotating the world. I think that the idea behind this game come from Super Paper Mario
 
 ![Alt text][FEZ]
 
@@ -26,10 +26,12 @@ A platform game. It is the game which will torment your soul... Died hundres tim
 
 #SpaceChem
 
-A puzzle game which is exactly programming... I have play this game several years... But I fogot to backup the save file, before I reinstalled my Operation System... Then I lost my interest to play it from beginning... Programming once is fun, programming twice is boring...
+A puzzle game which is exactly programming... I played this game several years ago... But I fogot to backup the save file before I reinstalled my Operation System... Then I lost my interest to play it from beginning... Programming once is fun, programming twice is boring...
 
 ![Alt text][SpaceChem_0]
 ![Alt text][SpaceChem_1]
 
 [SpaceChem_0]: https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_0.png
 [SpaceChem_1]: https://raw.githubusercontent.com/FiveEye/playground/master/games/SpaceChem_1.png
+
+
