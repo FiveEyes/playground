@@ -10,6 +10,6 @@
 
 [**hackerrand**](https://www.hackerrank.com/)
 
-[**project euler**](https://projecteuler.net/)
+[**Project Euler**](https://projecteuler.net/)
 
 [**codechef**](http://www.codechef.com/)
