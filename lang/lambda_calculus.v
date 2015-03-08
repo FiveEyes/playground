@@ -32,24 +32,85 @@ Inductive Step : Exp -> Exp -> Prop :=
   | stp_app_abs_beta : forall {v e11 v2 e21 e3},   Beta v e11 (abs v2 e21) e3 -> Step (app (abs v e11) (abs v2 e21)) e3
   | stp_app_ref_beta : forall {v e11 v2 e3},       Beta v e11 (ref v2)     e3 -> Step (app (abs v e11) (ref v2))     e3.
 
-Fixpoint beta (v : var) (e1 : Exp) (e2 : Exp) : Exp :=
-  match e1 with
-  | (ref v') => if string_dec v v' then e2 else (ref v') 
-  | (abs v' e1') => if string_dec v v' then (abs v' e1') else (abs v' (beta v e1' e2))
-  | (app e11 e12) => (app (beta v e11 e2) (beta v e12 e2))
+Fixpoint alpha_conv (v:var) (s:var) (e:Exp) : Exp :=
+  match e with
+  | (ref t) => if string_dec v t then (ref s) else (ref t)
+  | (abs t e1) => if string_dec v t then (abs s (alpha_conv v s e1)) else (abs t (alpha_conv v s e1))
+  | (app e1 e2) => app (alpha_conv v s e1) (alpha_conv v s e2)
   end.
 
-Eval compute in (beta "f" (abs "x" (abs "y" (ref "f"))) id).
+Fixpoint subst' (v : var) (e1 : Exp) (e2 : Exp) : Exp := 
+  match e1 with
+  | (ref v') => if string_dec v v' then e2 else (ref v') 
+  | (abs v' e1') => if string_dec v v' then e1 else (abs v' (subst' v e1' e2))
+  | (app e11 e12) => (app (subst' v e11 e2) (subst' v e12 e2))
+  end.
 
-Eval compute in (beta "x" (ref "x") id).
+Check List.app.
+
+Fixpoint get_name_list (e : Exp) : list string :=
+  match e with
+  | (ref v) => cons v nil
+  | (abs v e1) => remove string_dec v (get_name_list e1)
+  | (app e1 e2) => List.app (get_name_list e1) (get_name_list e2)
+  end.
+
+Local Open Scope char_scope.
+Definition char_prime := "'".
+Close Scope char_scope.
+
+Fixpoint rename_str (v:string) (s:string) : string :=
+  match s with
+  | EmptyString => "'"
+  | String a s' => 
+    match v with
+    | EmptyString => if prefix "'" s then String char_prime (rename_str EmptyString s') else "'"
+    | String a v' => String a (rename_str v' s')
+    end
+  end.
+
+Eval compute in rename_str "s" "s'".
+
+Fixpoint rename_list (v:string) (l:list string) : string :=
+  match l with
+  | nil => v
+  | (cons s t) => let v' := rename_list v t in
+    if prefix v' s then rename_str v' s
+    else v'
+  end.
+
+Import ListNotations.
+
+Eval compute in rename_list "s" [ "s"; "s'"; "x"; "s'''"].
+
+Fixpoint rename_exp_for_list (ls:list string) (e:Exp) : Exp :=
+  match ls with
+  | nil => e
+  | (cons s l) => rename_exp_for_list l (alpha_conv s (rename_list s ls) e)
+  end.
+
+
+
+Fixpoint subst (v : var) (e1 : Exp) (e2 : Exp) : Exp :=
+  let e1' := rename_exp_for_list (remove string_dec v (get_name_list e2)) e1 in subst' v e1' e2.
+
+Eval compute in (subst "f" (abs "x" (abs "y" (ref "f"))) id).
+
+Eval compute in (subst "x" (ref "x") id).
 
 Fixpoint step (e : Exp) : Exp :=
   match e with
   | (ref v) => ref v
   | (abs v e') => abs v (step e')
-  | (app (abs v1 e11) e2) => beta v1 e11 (step e2)
+  | (app (abs v1 e11) e2) => subst v1 e11 (step e2)
   | (app (ref v1) e2) => (app (ref v1) (step e2))
   | (app e1 e2) => app (step e1) (step e2)
+  end.
+
+Fixpoint stepN (n:nat) (e:Exp) : Exp :=
+  match n with
+  | O => e
+  | S x => stepN x (step e)
   end.
 
 Definition YC := (abs "f" (app 
@@ -72,5 +133,18 @@ Eval compute in f3.
 Eval compute in f4.
 Eval compute in f5.
 
+Eval compute in remove string_dec "y" (get_name_list (ref "x")).
+Eval compute in rename_exp_for_list ["x"] (abs "x" (ref "y")).
+Eval compute in (rename_list "x" ["x"]).
+Eval compute in (alpha_conv "x" "x'" (abs "x" (ref "y"))).
+Eval compute in 
+  (step (abs "x" (app (abs "y" (abs "x" (ref "y"))) (ref "x")))).
+Eval compute in step
+  (app (abs "x" (abs "x'" (app (ref "x'") (ref "x")))) (ref "x'")).
+Eval compute in stepN 2
+  (app (app (abs "x" (abs "x'" (app (ref "x'") (ref "x")))) (ref "x'")) id).
+
+Eval compute in 
+  (step (app (abs "y" (abs "a" (ref "y"))) (ref "a"))).
 
 
