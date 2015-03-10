@@ -147,4 +147,6 @@ Eval compute in stepN 2
 Eval compute in 
   (step (app (abs "y" (abs "a" (ref "y"))) (ref "a"))).
 
+Eval compute in stepN 1 (app (abs "y" (ref "x")) (ref "x")).
+
 
