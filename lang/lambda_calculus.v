@@ -48,11 +48,17 @@ Fixpoint subst' (v : var) (e1 : Exp) (e2 : Exp) : Exp :=
 
 Check List.app.
 
+Fixpoint remove_repeat_string (ls : list string) : list string :=
+  match ls with
+  | nil => nil
+  | (cons s t) => cons s (remove string_dec s (remove_repeat_string t))
+  end.
+
 Fixpoint get_name_list (e : Exp) : list string :=
   match e with
   | (ref v) => cons v nil
   | (abs v e1) => remove string_dec v (get_name_list e1)
-  | (app e1 e2) => List.app (get_name_list e1) (get_name_list e2)
+  | (app e1 e2) => remove_repeat_string (List.app (get_name_list e1) (get_name_list e2))
   end.
 
 Local Open Scope char_scope.
@@ -89,10 +95,12 @@ Fixpoint rename_exp_for_list (ls:list string) (e:Exp) : Exp :=
   | (cons s l) => rename_exp_for_list l (alpha_conv s (rename_list s ls) e)
   end.
 
-
-
-Fixpoint subst (v : var) (e1 : Exp) (e2 : Exp) : Exp :=
-  let e1' := rename_exp_for_list (remove string_dec v (get_name_list e2)) e1 in subst' v e1' e2.
+Definition subst (v : var) (e1 : Exp) (e2 : Exp) : Exp :=
+  let name_list := get_name_list e2 in
+  let v' := rename_list v name_list in
+  let e1' := alpha_conv v v' e1 in
+    subst' v' e1' e2.
+(* let e1' := rename_exp_for_list (remove string_dec v (get_name_list e2)) e1 in subst' v e1' e2. *)
 
 Eval compute in (subst "f" (abs "x" (abs "y" (ref "f"))) id).
 
