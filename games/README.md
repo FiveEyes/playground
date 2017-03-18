@@ -1,12 +1,12 @@
-#Mountain
+# Mountain
 
-It is a art game on Steam. Many people said that it is not a game, because the only thing players can do is watching... But I love this game. When I am so tired, and I don't want to do anything, then I watch my mountain and think about my life.
+It is an art game on Steam. Many people said that it is not a game, because the only thing players can do is watching... But I love this game. When I am so tired, and I don't want to do anything, then I watch my mountain and think about my life.
 
 ![Alt text][mountain]
 
 [mountain]: https://raw.githubusercontent.com/FiveEye/playground/master/games/Mountain.png
 
-#FEZ
+# FEZ
 
 A pixel game wich reminds me my childhood. But it is a real 3D game. The world in this game has four orthographic views, and players can switch them by rotating the world. I think that the idea behind this game come from Super Paper Mario
 
@@ -14,7 +14,7 @@ A pixel game wich reminds me my childhood. But it is a real 3D game. The world i
 
 [FEZ]: https://raw.githubusercontent.com/FiveEye/playground/master/games/FEZ.png
 
-#Super Meat Boy
+# Super Meat Boy
 
 A platform game. It is the game which will torment your soul... Died hundres times to complete one level.... Maybe I am a bad player of this kind of games...
 
@@ -24,7 +24,7 @@ A platform game. It is the game which will torment your soul... Died hundres tim
 [super_meat_boy_0]: https://github.com/FiveEye/playground/blob/master/games/super_meat_boy_0.png
 [super_meat_boy_1]: https://github.com/FiveEye/playground/blob/master/games/super_meat_boy_1.png
 
-#SpaceChem
+# SpaceChem
 
 A puzzle game which is exactly programming... I played this game several years ago... But I fogot to backup the save file before I reinstalled my Operation System... Then I lost my interest to play it from beginning... Programming once is fun, programming twice is boring...
 
