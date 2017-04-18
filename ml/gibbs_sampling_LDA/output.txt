@@ -1,0 +1,131 @@
+docword.nips.txt K=10
+-----------------
+topic 0
+    neuron      0.020882
+      cell      0.017402
+     model      0.015056
+     input      0.010033
+   pattern      0.006879
+  synaptic      0.006614
+  activity      0.006606
+   network      0.006255
+    system      0.005924
+    firing      0.005414
+-----------------
+-----------------
+topic 1
+  learning      0.026458
+   control      0.015500
+    action      0.012403
+     model      0.012189
+    system      0.010958
+    policy      0.007494
+reinforcement   0.007189
+   dynamic      0.007018
+      task      0.006305
+controller      0.005970
+-----------------
+-----------------
+topic 2
+   circuit      0.016183
+    signal      0.013415
+    analog      0.012570
+      chip      0.012087
+    output      0.010470
+    system      0.009649
+    neural      0.009295
+   current      0.008699
+     input      0.008377
+    neuron      0.006856
+-----------------
+-----------------
+topic 3
+     image      0.016797
+    object      0.014499
+     model      0.010891
+    images      0.010870
+    visual      0.010251
+     field      0.009146
+    motion      0.008526
+       map      0.008137
+representation  0.007088
+ direction      0.006587
+-----------------
+-----------------
+topic 4
+   network      0.059440
+     input      0.025871
+      unit      0.024237
+    weight      0.020875
+  learning      0.020150
+    output      0.018310
+    neural      0.016898
+  training      0.015325
+     error      0.012670
+     layer      0.011798
+-----------------
+-----------------
+topic 5
+    speech      0.018162
+      word      0.016885
+recognition     0.012668
+     model      0.012275
+    system      0.012135
+       hmm      0.008893
+   context      0.008467
+  sequence      0.007075
+  training      0.006387
+   speaker      0.006362
+-----------------
+-----------------
+topic 6
+  function      0.027204
+ algorithm      0.016195
+  learning      0.011543
+    result      0.008555
+     bound      0.008156
+    vector      0.007606
+     point      0.007181
+       set      0.007169
+      case      0.007022
+    number      0.006950
+-----------------
+-----------------
+topic 7
+   network      0.010832
+      node      0.007929
+   problem      0.007681
+ algorithm      0.007280
+     graph      0.007134
+      tree      0.006798
+    neural      0.005704
+     nodes      0.005682
+    memory      0.005471
+    energy      0.005281
+-----------------
+-----------------
+topic 8
+  training      0.017387
+       set      0.017335
+      data      0.013249
+classifier      0.012007
+classification  0.010864
+   network      0.009632
+   pattern      0.009193
+performance     0.008919
+      test      0.008205
+     class      0.007687
+-----------------
+-----------------
+topic 9
+     model      0.028582
+      data      0.020970
+distribution    0.011291
+ parameter      0.010171
+  gaussian      0.009430
+  function      0.008926
+ algorithm      0.008787
+    method      0.008343
+       set      0.006953
+      mean      0.006917
+-----------------
